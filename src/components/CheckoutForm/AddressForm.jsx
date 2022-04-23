@@ -12,7 +12,7 @@ import FormInput from "./CustomTextField";
 import { commerce } from "../../lib/commerce";
 import { Link } from "react-router-dom";
 
-const AddressForm = ({ checkoutToken, next }) => {
+const AddressForm = ({ checkoutToken, nextStep }) => {
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState("");
   const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
@@ -91,7 +91,7 @@ const AddressForm = ({ checkoutToken, next }) => {
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit((data) =>
-            next({
+            nextStep({
               ...data,
               shippingCountry,
               shippingSubdivision,
