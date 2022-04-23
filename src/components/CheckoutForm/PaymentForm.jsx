@@ -12,10 +12,10 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const PaymentForm = ({
   checkoutToken,
-  shippingData,
-  backStep,
-  onCaptureCheckout,
   nextStep,
+  backStep,
+  shippingData,
+  onCaptureCheckout,
 }) => {
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
@@ -44,13 +44,14 @@ const PaymentForm = ({
           postal_zip_code: shippingData.zip,
           country: shippingData.shippingCountry,
         },
-        fullfillment: { shipping_method: shippingData.shippingOption },
+        fulfillment: { shipping_method: shippingData.shippingOption },
         payment: {
           gateway: "stripe",
           stripe: { payment_method_id: paymentMethod.id },
         },
       };
 
+      console.log(orderData);
       onCaptureCheckout(checkoutToken.id, orderData);
       nextStep();
     }

@@ -92,7 +92,7 @@ const App = () => {
               <Checkout
                 cart={cart}
                 order={order}
-                onCaptureCaptureCheckout={handleCaptureCheckout}
+                onCaptureCheckout={handleCaptureCheckout}
                 error={errorMessage}
               />
             }
