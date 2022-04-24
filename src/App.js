@@ -56,6 +56,7 @@ const App = () => {
       setErrorMessage(error.data.error.errorMessage);
     }
   };
+
   useEffect(() => {
     fetchProducts();
     fetchCart();
