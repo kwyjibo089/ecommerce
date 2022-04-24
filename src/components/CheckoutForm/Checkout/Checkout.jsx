@@ -47,7 +47,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
     }
   }, [cart, activeStep, navigate]);
 
-  const test = (data) => {
+  const next = (data) => {
     setShippingData(data);
 
     nextStep();
@@ -95,7 +95,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
         checkoutToken={checkoutToken}
         nextStep={nextStep}
         setShippingData={setShippingData}
-        test={test}
+        next={next}
       />
     ) : (
       <PaymentForm
